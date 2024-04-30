@@ -1,16 +1,10 @@
 
 
-public class Carree {
+public class Carree extends FormesGeometriques {
 
-    public static final int DIM_MIN = 2;
-    public static final int DIM_MAX = 20;
     public static final int LARG_DEFAUT = 5;
-    public static final String COUL_DEFAUT = "blanc";
-    public static final int LONGUEUR_COUL_MIN = 4;
-    public static final int LONGUEUR_COUL_MAX = 15;
-
     private int largeur;
-    private String couleur;
+
 
     Carree()
     {
@@ -19,12 +13,13 @@ public class Carree {
 
     Carree(int pLarg,String pCoul)
     {
+        super(pCoul);
         boolean ok = setLargeur(pLarg)
                 && setCouleur(pCoul);
         if (!ok)
         {
             largeur = LARG_DEFAUT;
-            couleur = COUL_DEFAUT;
+            setCouleur(COUL_DEFAUT);
         }
     }
 
@@ -33,10 +28,14 @@ public class Carree {
         return largeur;
     }
 
-    public String getCouleur()
-    {
-        return couleur;
+    public String getCouleur(){
+        return super.getCouleur();
     }
+
+    public boolean setCouleur(String pCoul){
+        return super.setCouleur(pCoul);
+    }
+
 
     public boolean setLargeur(int pLarg)
     {
@@ -54,17 +53,6 @@ public class Carree {
     public static boolean validerLargeur(int pLarg)
     {
         return (pLarg >= DIM_MIN && pLarg <= DIM_MAX);
-    }
-
-    public boolean setCouleur(String pCoul)
-    {
-        boolean ok = validerCouleur(pCoul);
-        if (ok) {
-            couleur = pCoul;
-        } else {
-            couleur = COUL_DEFAUT;
-        }
-        return ok;
     }
 
     public static boolean validerCouleur(String pCoul)
@@ -93,7 +81,7 @@ public class Carree {
     {
         return pRec != null && pRec instanceof Carree
                 && this.largeur == ((Carree) pRec).largeur
-                && this.couleur.equals(((Carree) pRec).couleur);
+                && getCouleur().equals(((Carree) pRec).getCouleur());
 
     }
 

@@ -1,22 +1,18 @@
 
 
-public class Triangle {
+public class Triangle extends FormesGeometriques {
 
     Triangle t1,t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,t13,t14;
 
-    public static final int DIM_MIN = 3;
-    public static final int DIM_MAX = 20;
+
     public static final int LARG_DEFAUT = 3;
     public static final int HAUT_DEFAUT = 5;
-    public static final String COUL_DEFAUT = "blanc";
-    public static final int LONGUEUR_COUL_MIN = 4;
-    public static final int LONGUEUR_COUL_MAX = 15;
     public static final int COTE_DEFAUT = 5;
 
     private int largeur;
     private int hauteur;
     private int cote;
-    private String couleur;
+
 
     Triangle()
     {
@@ -25,6 +21,7 @@ public class Triangle {
 
     Triangle(int pLarg, int pHaut, int pCote, String pCoul)
     {
+        super(pCoul);
         boolean ok = setLargeur(pLarg) && setHauteur(pHaut)
                 && setCouleur(pCoul) && setCote(pCote);
         if (!ok)
@@ -32,7 +29,7 @@ public class Triangle {
             largeur = LARG_DEFAUT;
             hauteur = HAUT_DEFAUT;
             cote = COTE_DEFAUT;
-            couleur = COUL_DEFAUT;
+            setCouleur(COUL_DEFAUT);
         }
     }
 
@@ -49,11 +46,6 @@ public class Triangle {
     public int getCote()
     {
         return cote;
-    }
-
-    public String getCouleur()
-    {
-        return couleur;
     }
 
     public boolean setLargeur(int pLarg)
@@ -92,13 +84,7 @@ public class Triangle {
         return (pHaut >= DIM_MIN && pHaut <= DIM_MAX);
     }
 
-    public boolean setCouleur(String pCoul)
-    {
-        boolean ok = validerCouleur(pCoul);
-        if (ok)
-            couleur = pCoul;
-        return ok;
-    }
+
 
     public boolean setCote (int pCote) {
         boolean ok = validerCote(pCote);
@@ -148,7 +134,7 @@ public class Triangle {
         return pTri != null && pTri instanceof Triangle
                 && this.largeur == ((Triangle) pTri).largeur
                 && this.hauteur == ((Triangle) pTri).hauteur
-                && this.couleur.equals(((Triangle) pTri).couleur);
+                && getCouleur().equals(((Triangle) pTri).getCouleur());
 
     }
 

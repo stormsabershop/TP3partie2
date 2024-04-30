@@ -60,13 +60,13 @@ class CarreeTest {
 
     @Test
     void getCouleur() {
-        assertEquals(c0.getCouleur(),Carree.COUL_DEFAUT);
+        assertEquals(c0.getCouleur(),FormesGeometriques.COUL_DEFAUT);
         assertEquals(c1.getCouleur(),"bleu");
-        assertEquals(c12.getCouleur(),Carree.COUL_DEFAUT);
-        assertEquals(c13.getCouleur(),Carree.COUL_DEFAUT);
+        assertEquals(c12.getCouleur(),FormesGeometriques.COUL_DEFAUT);
+        assertEquals(c13.getCouleur(),FormesGeometriques.COUL_DEFAUT);
         assertEquals(c14.getCouleur(),"vert");
         assertEquals(c15.getCouleur(),"orangeRougePale");
-        assertEquals(c16.getCouleur(),Carree.COUL_DEFAUT);
+        assertEquals(c16.getCouleur(),FormesGeometriques.COUL_DEFAUT);
     }
 
     @Test
@@ -95,15 +95,15 @@ class CarreeTest {
     @Test
     void setCouleur() {
         c1.setCouleur(null);
-        assertEquals(c1.getCouleur(),Carree.COUL_DEFAUT);
+        assertEquals(c1.getCouleur(),FormesGeometriques.COUL_DEFAUT);
         c1.setCouleur("ver");
-        assertEquals(c1.getCouleur(),Carree.COUL_DEFAUT);
+        assertEquals(c1.getCouleur(),FormesGeometriques.COUL_DEFAUT);
         c1.setCouleur("vert");
         assertEquals(c1.getCouleur(),"vert");
         c1.setCouleur("orangeRougePale");
         assertEquals(c1.getCouleur(),"orangeRougePale");
         c1.setCouleur("orangeRougeFonce");
-        assertEquals(c1.getCouleur(),Carree.COUL_DEFAUT);
+        assertEquals(c1.getCouleur(),FormesGeometriques.COUL_DEFAUT);
 
     }
     @Test

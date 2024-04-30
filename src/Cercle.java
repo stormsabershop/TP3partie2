@@ -1,17 +1,13 @@
 
 
-public class Cercle {
+public class Cercle extends FormesGeometriques{
 
-    public static final int DIM_MIN = 3;
-    public static final int DIM_MAX = 20;
     public static final int RAY_DEFAUT = 3;
     public static final int HAUT_DEFAUT = 5;
-    public static final String COUL_DEFAUT = "blanc";
-    public static final int LONGUEUR_COUL_MIN = 4;
-    public static final int LONGUEUR_COUL_MAX = 15;
+
 
     private int rayon;
-    private String couleur;
+
 
     Cercle()
     {
@@ -20,23 +16,19 @@ public class Cercle {
 
     Cercle(int pLarg, int pHaut, String pCoul)
     {
+        super(pCoul);
         boolean ok = setRayon(pLarg)
                 && setCouleur(pCoul);
         if (!ok)
         {
             rayon = RAY_DEFAUT;
-            couleur = COUL_DEFAUT;
+            setCouleur(COUL_DEFAUT);
         }
     }
 
     public int getRayon()
     {
         return rayon;
-    }
-
-    public String getCouleur()
-    {
-        return couleur;
     }
 
     public boolean setRayon(int pRayo)
@@ -52,19 +44,7 @@ public class Cercle {
         return (pRayo >= DIM_MIN && pRayo <= DIM_MAX);
     }
 
-    public boolean setCouleur(String pCoul)
-    {
-        boolean ok = validerCouleur(pCoul);
-        if (ok)
-            couleur = pCoul;
-        return ok;
-    }
 
-    public static boolean validerCouleur(String pCoul)
-    {
-        return (pCoul != null && pCoul.length() >= LONGUEUR_COUL_MIN
-                && pCoul.length() <= LONGUEUR_COUL_MAX);
-    }
 
     public int aire()
     {
@@ -86,7 +66,7 @@ public class Cercle {
     {
         return pCer != null && pCer instanceof Cercle
                 && this.rayon == ((Cercle) pCer).rayon
-                && this.couleur.equals(((Cercle) pCer).couleur);
+                && getCouleur().equals(((Cercle) pCer).getCouleur());
 
     }
 
