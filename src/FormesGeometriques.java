@@ -1,7 +1,6 @@
 public abstract class FormesGeometriques {
 
     private String couleur;
-
     public static final int LONGUEUR_COUL_MIN = 4;
     public static final int LONGUEUR_COUL_MAX = 15;
     public static final int DIM_MIN = 3;

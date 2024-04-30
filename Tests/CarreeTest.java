@@ -22,11 +22,11 @@ class CarreeTest {
         c1 = new Carree(6, "bleu");
 
         // Tests sur largeur
-        c2 = new Carree(Carree.DIM_MIN - 1, "bleu");
-        c3 = new Carree(Carree.DIM_MIN, "bleu");
+        c2 = new Carree(FormesGeometriques.DIM_MIN - 1, "bleu");
+        c3 = new Carree(FormesGeometriques.DIM_MIN, "bleu");
         c4 = new Carree(6,"bleu");
-        c5 = new Carree(Carree.DIM_MAX, "bleu");
-        c6 = new Carree(Carree.DIM_MAX + 1, "bleu");
+        c5 = new Carree(FormesGeometriques.DIM_MAX, "bleu");
+        c6 = new Carree(FormesGeometriques.DIM_MAX + 1, "bleu");
 
         // Tests sur couleur
         c12 = new Carree(6, null);
@@ -72,22 +72,22 @@ class CarreeTest {
     @Test
     void setLargeur() {
         c1.setLargeur(Carree.DIM_MIN - 1);
-        assertTrue(c1.getLargeur() == Carree.DIM_MIN);
+        assertTrue(c1.getLargeur() == FormesGeometriques.DIM_MIN);
         c1.setLargeur(Carree.DIM_MIN);
-        assertTrue(c1.getLargeur() == Carree.DIM_MIN);
+        assertTrue(c1.getLargeur() == FormesGeometriques.DIM_MIN);
         c1.setLargeur(7);
         assertTrue(c1.getLargeur() == 7);
         c1.setLargeur(Carree.DIM_MAX + 1);
-        assertTrue(c1.getLargeur() == Carree.DIM_MAX);
+        assertTrue(c1.getLargeur() == FormesGeometriques.DIM_MAX);
     }
 
 
     @Test
     void validerLargeur() {
-        assertFalse(Carree.validerLargeur(Carree.DIM_MIN-1));
-        assertTrue(Carree.validerLargeur(Carree.DIM_MIN));
+        assertFalse(Carree.validerLargeur(FormesGeometriques.DIM_MIN-1));
+        assertTrue(Carree.validerLargeur(FormesGeometriques.DIM_MIN));
         assertTrue(Carree.validerLargeur(9));
-        assertFalse(Carree.validerLargeur(Carree.DIM_MAX+1));
+        assertFalse(Carree.validerLargeur(FormesGeometriques.DIM_MAX+1));
 
 
     }
