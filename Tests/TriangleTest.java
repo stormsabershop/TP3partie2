@@ -10,9 +10,9 @@ class TriangleTest {
     public void TriangleTest() {
         t1 = new Triangle();
         t2 = new Triangle(Triangle.LARG_DEFAUT,Triangle.HAUT_DEFAUT,Triangle.COTE_DEFAUT,Triangle.COUL_DEFAUT);
-        t3 = new Triangle(Triangle.DIM_MAX,Triangle.DIM_MAX,Triangle.DIM_MAX,"eeeeeeeeeeeeeee"); //longeur de 15 pour la couleur
-        t4 = new Triangle(Triangle.DIM_MAX +1,Triangle.DIM_MAX+1,Triangle.DIM_MAX +1,"eeeeeeeeeeeeeeee"); //longeur de 16 pour la couleur
-        t5 = new Triangle(Triangle.DIM_MIN -1,Triangle.DIM_MIN-1,Triangle.DIM_MIN-1,"e");
+        t3 = new Triangle(FormesGeometriques.DIM_MAX,FormesGeometriques.DIM_MAX,FormesGeometriques.DIM_MAX,"eeeeeeeeeeeeeee"); //longeur de 15 pour la couleur
+        t4 = new Triangle(FormesGeometriques.DIM_MAX +1,FormesGeometriques.DIM_MAX+1,FormesGeometriques.DIM_MAX +1,"eeeeeeeeeeeeeeee"); //longeur de 16 pour la couleur
+        t5 = new Triangle(FormesGeometriques.DIM_MIN -1,FormesGeometriques.DIM_MIN-1,FormesGeometriques.DIM_MIN-1,"e");
         t6 = new Triangle(8,10,5,"bleu");
     }
 
@@ -20,7 +20,7 @@ class TriangleTest {
     void getLargeur() {
         assertEquals(t1.getLargeur(),Triangle.LARG_DEFAUT);
         assertTrue(t2.getLargeur() == Triangle.LARG_DEFAUT);
-        assertTrue(t3.getLargeur() == Triangle.DIM_MAX);
+        assertTrue(t3.getLargeur() == FormesGeometriques.DIM_MAX);
         assertTrue(t4.getLargeur() == Triangle.LARG_DEFAUT);
         assertTrue(t5.getLargeur() == Triangle.LARG_DEFAUT);
         assertTrue(t6.getLargeur() == 8);
@@ -30,7 +30,7 @@ class TriangleTest {
     void getHauteur() {
         assertTrue(t1.getHauteur() == Triangle.HAUT_DEFAUT);
         assertTrue(t2.getHauteur() == Triangle.HAUT_DEFAUT);
-        assertTrue(t3.getHauteur() == Triangle.DIM_MAX);
+        assertTrue(t3.getHauteur() == FormesGeometriques.DIM_MAX);
         assertTrue(t4.getHauteur() == Triangle.HAUT_DEFAUT);
         assertTrue(t5.getHauteur() == Triangle.HAUT_DEFAUT);
         assertTrue(t6.getHauteur() == 10);
@@ -38,13 +38,13 @@ class TriangleTest {
 
     @Test
     void getCouleur() {
-        assertEquals(t1.getCouleur(),Triangle.COUL_DEFAUT);
-        assertEquals(t2.getCouleur(),Triangle.COUL_DEFAUT);
+        assertEquals(t1.getCouleur(),FormesGeometriques.COUL_DEFAUT);
+        assertEquals(t2.getCouleur(),FormesGeometriques.COUL_DEFAUT);
         assertEquals(t3.getCouleur(),"eeeeeeeeeeeeeee");
         assertNotEquals(t4.getCouleur(),"eeeeeeeeeeeeeeee");
-        assertEquals(t4.getCouleur(),Triangle.COUL_DEFAUT);
+        assertEquals(t4.getCouleur(),FormesGeometriques.COUL_DEFAUT);
         assertNotEquals(t5.getCouleur(),"e");
-        assertEquals(t5.getCouleur(),Triangle.COUL_DEFAUT);
+        assertEquals(t5.getCouleur(),FormesGeometriques.COUL_DEFAUT);
         assertEquals(t6.getCouleur(),"bleu");
     }
 
@@ -52,7 +52,7 @@ class TriangleTest {
     void getCote() {
         assertTrue(t1.getCote() == Triangle.COTE_DEFAUT);
         assertTrue(t2.getCote() == Triangle.COTE_DEFAUT);
-        assertTrue(t3.getCote() == Triangle.DIM_MAX);
+        assertTrue(t3.getCote() == FormesGeometriques.DIM_MAX);
         assertTrue(t4.getCote() == Triangle.COTE_DEFAUT);
         assertTrue(t5.getCote() == Triangle.COTE_DEFAUT);
         assertTrue(t6.getCote() == 5);
@@ -73,8 +73,8 @@ class TriangleTest {
 
     @Test
     void validerLargeur() {
-        assertTrue(Triangle.validerLargeur(Triangle.DIM_MAX));
-        assertTrue(Triangle.validerLargeur(Triangle.DIM_MIN));
+        assertTrue(Triangle.validerLargeur(FormesGeometriques.DIM_MAX));
+        assertTrue(Triangle.validerLargeur(FormesGeometriques.DIM_MIN));
         assertFalse(Triangle.validerLargeur(0));
         assertFalse(Triangle.validerLargeur(200));
         assertTrue(Triangle.validerLargeur(12));
@@ -86,20 +86,20 @@ class TriangleTest {
         assertTrue(t1.getHauteur() == Triangle.HAUT_DEFAUT);
         t1.setHauteur(10);
         assertTrue(t1.getHauteur() == 10);
-        t1.setHauteur(Triangle.DIM_MIN -1);
-        assertTrue(t1.getHauteur() == Triangle.DIM_MIN);
-        t1.setHauteur(Triangle.DIM_MAX + 1);
-        assertTrue(t1.getHauteur() == Triangle.DIM_MAX);
-        t1.setHauteur(Triangle.DIM_MAX);
-        assertTrue(t1.getHauteur() == Triangle.DIM_MAX);
-        t1.setHauteur(Triangle.DIM_MIN);
-        assertTrue(t1.getHauteur() == Triangle.DIM_MIN);
+        t1.setHauteur(FormesGeometriques.DIM_MIN -1);
+        assertTrue(t1.getHauteur() == FormesGeometriques.DIM_MIN);
+        t1.setHauteur(FormesGeometriques.DIM_MAX + 1);
+        assertTrue(t1.getHauteur() == FormesGeometriques.DIM_MAX);
+        t1.setHauteur(FormesGeometriques.DIM_MAX);
+        assertTrue(t1.getHauteur() == FormesGeometriques.DIM_MAX);
+        t1.setHauteur(FormesGeometriques.DIM_MIN);
+        assertTrue(t1.getHauteur() == FormesGeometriques.DIM_MIN);
     }
 
     @Test
     void validerHauteur() {
-        assertTrue(Triangle.validerHauteur(Triangle.DIM_MAX));
-        assertTrue(Triangle.validerHauteur(Triangle.DIM_MIN));
+        assertTrue(Triangle.validerHauteur(FormesGeometriques.DIM_MAX));
+        assertTrue(Triangle.validerHauteur(FormesGeometriques.DIM_MIN));
         assertFalse(Triangle.validerHauteur(0));
         assertFalse(Triangle.validerHauteur(200));
         assertTrue(Triangle.validerHauteur(12));
@@ -108,9 +108,9 @@ class TriangleTest {
     @Test
     void setCouleur() {
         t1.setCouleur(null);
-        assertEquals(t1.getCouleur(),Carree.COUL_DEFAUT);
+        assertEquals(t1.getCouleur(),FormesGeometriques.COUL_DEFAUT);
         t1.setCouleur("ver");
-        assertEquals(t1.getCouleur(),Carree.COUL_DEFAUT);
+        assertEquals(t1.getCouleur(),FormesGeometriques.COUL_DEFAUT);
         t1.setCouleur("vert");
         assertEquals(t1.getCouleur(),"vert");
         t1.setCouleur("orangeRougePale");
@@ -134,20 +134,20 @@ class TriangleTest {
         assertTrue(t1.getCote() == Triangle.COTE_DEFAUT);
         t1.setCote(10);
         assertTrue(t1.getCote() == 10);
-        t1.setCote(Triangle.DIM_MIN -1);
-        assertTrue(t1.getCote() == Triangle.DIM_MIN);
-        t1.setCote(Triangle.DIM_MAX + 1);
-        assertTrue(t1.getCote() == Triangle.DIM_MAX);
-        t1.setCote(Triangle.DIM_MAX);
-        assertTrue(t1.getCote() == Triangle.DIM_MAX);
-        t1.setCote(Triangle.DIM_MIN);
-        assertTrue(t1.getCote() == Triangle.DIM_MIN);
+        t1.setCote(FormesGeometriques.DIM_MIN -1);
+        assertTrue(t1.getCote() == FormesGeometriques.DIM_MIN);
+        t1.setCote(FormesGeometriques.DIM_MAX + 1);
+        assertTrue(t1.getCote() == FormesGeometriques.DIM_MAX);
+        t1.setCote(FormesGeometriques.DIM_MAX);
+        assertTrue(t1.getCote() == FormesGeometriques.DIM_MAX);
+        t1.setCote(FormesGeometriques.DIM_MIN);
+        assertTrue(t1.getCote() == FormesGeometriques.DIM_MIN);
     }
 
     @Test
     void validerCote() {
-        assertTrue(Triangle.validerCote(Triangle.DIM_MAX));
-        assertTrue(Triangle.validerCote(Triangle.DIM_MIN));
+        assertTrue(Triangle.validerCote(FormesGeometriques.DIM_MAX));
+        assertTrue(Triangle.validerCote(FormesGeometriques.DIM_MIN));
         assertFalse(Triangle.validerCote(0));
         assertFalse(Triangle.validerCote(200));
         assertTrue(Triangle.validerCote(12));

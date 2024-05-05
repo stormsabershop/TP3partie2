@@ -52,9 +52,9 @@ class CarreeTest {
         assertTrue(c0.getLargeur() == Carree.LARG_DEFAUT);
         assertTrue(c1.getLargeur() == 6);
         assertTrue(c2.getLargeur() == Carree.LARG_DEFAUT);
-        assertTrue(c3.getLargeur() == Carree.DIM_MIN);
+        assertTrue(c3.getLargeur() == FormesGeometriques.DIM_MIN);
         assertTrue(c4.getLargeur() == 6);
-        assertTrue(c5.getLargeur() == Carree.DIM_MAX);
+        assertTrue(c5.getLargeur() == FormesGeometriques.DIM_MAX);
         assertTrue(c6.getLargeur() == Carree.LARG_DEFAUT);
     }
 
